@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Upload Assignment | Learning Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+   
+    
+      .root{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* color: white; */
+  
+         
+      } 
+      
+      .subdiv{
+          width: 100%;
+          margin-top: 30px;
+          padding: 20px;
+      } 
+      .aligncenter{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .gap{
+        padding: 15px;
+      }
+      /* footer section styling */
+footer{
+    background: #111;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+footer span a{
+    color: #00D1B2;
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body style="background-color: #ecf0f1;">
+    <div style="display: flex; justify-content: center; align-items: center; ">
+        <div style="width: 70%; height: 100vh; background-color: white;">
+          <div style="display: flex; flex-direction: row;">
+            <div>
+    <!-- Navigation Bar  -->
+    <nav class="navbar" style="background:#ffbe76; display: flex; width: 100%; height: 95vh; flex-direction: column; " role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" >
+            <img src="/images/lms.png" width="100px" height="150vh">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+            <h4><a class="navbar-item" href="/first/homeAdmin">
+              Home
+            </a></h4>
+      
+            <h4><a class="navbar-item" href="/first/addAssignment">
+             Add Assignment
+            </a></h4>
+            <h4><a class="navbar-item" href="/first/editAssignment">
+              Edit Assignment
+            </a></h4>
+
+            <h4><a class="navbar-item" href="/first/viewAssgn">
+              View Submission 
+            </a></h4>
+
+            <h4><a class="navbar-item">
+              Update Marks
+            </a></h4>
+
+            
+          </div>
+        </div>
+
+      
+            <div class="navbar-item">
+              <div class="buttons">
+                <a style="float: inline-start;" class="button is-primary" href="/first/adminLogout">
+                  <strong>Log Out</strong>
+                </a>
+                
+              </div>
+            </div>
+         
+      </nav>
+    </div>
+    <div>
+
+         <!-- right  -->
+        <div class="root">
+            <div class="subdiv">
+  
+              <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand" >
+                  <i class="fas fa-sticky-note fa-2x">&nbsp;&nbsp;</i>
+                 <b root style=" letter-spacing: 2; font-size:xx-large;">&nbsp;&nbsp;Upload Assignment</b>
+              
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+              </nav>
+  <br>
+<form action="/first/uploadassg" method="POST" enctype="multipart/form-data">
+  <!-- right  -->
+  <div class="row">
+    <div class="col">
+        <div class="field">
+          <label class="label">Institute <span style="color: red;">*</span></label>
+          <div class="control has-icons-left has-icons-right">
+            <input name="institute" style="width: 360px;" required class="input is-success" type="text" value="IIIT Bhopal" readonly>
+            <span class="icon is-small is-left">
+              <i class="fa fa-university"></i>
+            </span>
+          </div>
+      </div>
+      </div>
+    <div class="col">
+      <label class="label">Course <span style="color: red; ">*</span></label>
+      <div class="control has-icons-left">
+        <div class="select is-success">
+          <select name="course" required style="width: 360px;" >
+            <option selected>-Select Course-</option>
+            <option>B.tech</option>
+          </select>
+        </div>
+        <div class="icon is-small is-left">
+          <i class="fa fa-book"></i>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <!-- right  -->
+    
+    <!-- right  -->
+    <div class="row">
+        <div class="col">
+          <label class="label">Department <span style="color: red;">*</span></label>
+          <div class="control has-icons-left">
+            <div class="select is-success">
+                <select name="dept" required style="width: 360px;">
+                    <option selected>-Select Department-</option>
+                    <option>CSE/IT</option>
+                    <option>ECE/ETE</option>
+                    <option>ME/AU</option>
+                    <option>EE</option>
+                    <option>Civil</option>
+                    <option>Chemical</option>
+                  </select>
+            </div>
+            <div class="icon is-small is-left">
+              <i class="fa fa-university"></i>
+            </div>
+          </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <label class="label">Assignment Number <span style="color: red;">*</span></label>
+              <div class="control has-icons-left has-icons-right">
+                <input name="assgnum" style="width: 360px;" required class="input is-success" type="text" placeholder="Assignment Number" >
+                <span class="icon is-small is-left">
+                  <i class="fa fa-list-ol"></i>
+                </span>
+              </div>
+          </div>
+          </div>
+        </div>
+        <br>
+        <!-- right  -->
+    
+    <!-- right  -->
+    <div class="row">
+        <div class="col">
+          <label class="label">Semester <span style="color: red;">*</span></label>
+          <div class="control has-icons-left">
+            <div class="select is-success">
+              <select name="sem" required style="width: 360px;">
+                <option selected>-Select Semester-</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+                <option>V</option>
+                <option>VI</option>
+                <option>VII</option>
+                <option>VIII</option>
+              </select>
+            </div>
+            <div class="icon is-small is-left">
+              <i class="fa fa-circle"></i>
+            </div>
+          </div>
+          </div>
+        <div class="col">
+          <label class="label">Subject <span style="color: red;">*</span></label>
+          <div class="control has-icons-left">
+            <div class="select is-success">
+              <select name="subject" required style="width: 360px;">
+                <option selected>-Select Subject-</option>
+                <option>CSE-101 Engineering Workshop</option>
+                <option>CSE-222 COA</option>
+                <option>CSE-222 SE-LAB</option>
+                <option>IT-101 Engineering Workshop</option>
+                <option>IT-222 COA</option>
+                <option>IT-222 SE-LAB</option>
+              </select>
+            </div>
+            <div class="icon is-small is-left">
+              <i class="fa fa-circle"></i>
+            </div>
+          </div>
+        </div>
+        </div>
+        <br>
+        <!-- right  -->
+
+
+        <!-- right  -->
+        <div class='row'>
+            <div class='col '>
+                <div class="field">
+                    <label class="label">Upload Date <span style="color: red;">*</span></label>
+                      <p class="control has-icons-left has-icons-right">
+                        <input name="udate" style="width: 360px;"  required class="input is-success" name='birthdate' type="date">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                    </div>
+
+            <div class='col'>
+                <div class="field">
+                  <label class="label">Due Date <span style="color: red;">*</span></label>
+                    <p class="control has-icons-left has-icons-right">
+                      <input name="ddate" style="width: 360px;"  required class="input is-success" name='birthdate' type="date">
+                      <span class="icon is-small is-left">
+                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <!-- right  -->
+<br>
+
+            <div class="row">
+              <div class="col">
+                <!-- <label class="label">Subject <span style="color: red;">*</span></label> -->
+                <div class="control has-icons-left">
+                  <div class="select is-success">
+                    <select name="faculty" required style="width: 360px;">
+                      <option selected>-Select Faculty-</option>
+                      <option value="Prof. Hema Dubey">Prof. Hema Dubey</option>		
+            	<option value="Prof. MEENU CHAWLA">Prof. Meenu Chawla</option>		
+            	<option value="Prof. Shalini Stalin">Prof. Shalini Stalin</option>			
+              <option value="Prof. Yatendra Sahu">Prof. Yatendra Sahu</option>
+                    </select>
+                  </div>
+                  <div class="icon is-small is-left">
+                    <i class="fa fa-circle"></i>
+                  </div>
+                </div>
+              </div>
+                <div class="col ">
+                    <div id="file-js-example" class="file has-name is-primary">
+                        <label class="file-label">
+                          <input class="file-input" type="file" name="resume">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Choose a file…
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            No file uploaded
+                          </span>
+                        </label>
+                      </div>
+                      
+                      <script>
+                        const fileInput = document.querySelector('#file-js-example input[type=file]');
+                        fileInput.onchange = () => {
+                          if (fileInput.files.length > 0) {
+                            const fileName = document.querySelector('#file-js-example .file-name');
+                            fileName.textContent = fileInput.files[0].name;
+                          }
+                        }
+                      </script>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <div class="root" >
+                        <div class="navbar-item">
+                          <div class="buttons">
+                            <button type="submit" style="float: inline-start;" class="button is-warning">
+                              <strong>Upload</strong>
+                            </button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col">
+                    <div class="root" >
+                        <div class="navbar-item">
+                          <div class="buttons">
+                            <button type="reset" style="float: inline-start;" class="button is-warning">
+                              <strong>Reset</strong>
+                            </button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+    
+              
+                
+              
+  
+            </div>
+        </div>
+         <!-- right  -->    
+            
+        </div>
+          
+          
+    </div>
+</form>   
+<% if (sit !=' '){ %>
+    <h2 style="color: green;" class="root"><%=sit%></h2>
+    <% } %>
+        <!-- footer section start -->
+        <footer>
+            <span>Created By <a href="#">BadriVishalS</a> | <span class="far fa-copyright"></span> 2021 All rights reserved.</span>
+        </footer>
+     
+      
+    </div>
+</div>
+
+</body>
+</html>

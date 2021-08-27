@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>User SignUp</title>
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+        }
+          
+            .root{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        
+               
+            } 
+            
+            .subdiv{
+                width: 100%;
+                margin-top: 30px;
+                padding: 20px;
+            } 
+            .aligncenter{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .gap{
+              padding: 15px;
+            }
+          </style>
+</head>
+<body style="background-color: #ecf0f1;">
+    <div style="display: flex; justify-content: center; align-items: center; ">
+        <div style="width: 70%; height: 100vh; background-color: white;">
+
+    <!-- Navigation Bar  -->
+    <nav class="navbar" style="background:#ffbe76; " role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" >
+            <img src="/images/lms.png" width="100px" height="150vh">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+       
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item" href="/first/first">
+                Home
+              </a>
+        
+              <a class="navbar-item">
+                Assignment
+              </a>
+        
+              <a class="navbar-item">
+                Notes
+              </a>
+  
+              <a class="navbar-item">
+                About
+              </a>
+  
+              <a class="navbar-item">
+                Contact
+              </a>
+
+            </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary" href="/first/signup">
+                  <strong>Sign up</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+    <form action='#' method='post'>
+
+      <div class='root'>
+          <div class='subdiv'>
+            
+            <div class="row" style=" border: 2px solid black; padding: 20px;">
+                <div class="col aligncenter" style=" padding: 10px; ">
+            <div style=" width: 70%;background-color: #ecf0f1;border-radius: 5px; padding: 30px; border: 2px solid black;">
+                <div class='aligncenter gap'>
+                  <h2 style=" font-weight: bold;  color: darkviolet;">Online Registration for Student</h2>
+                </div>
+                <div class='row aligncenter gap'>
+                    <a class="button is-primary" href="/first/studentsignup">
+                        <strong>Register</strong>
+                      </a>
+               </div>
+            </div>
+        </div>
+          
+          <div class="col aligncenter" style=" padding: 20px;">
+          <div  style=" width: 70%;background-color: #ecf0f1;border-radius: 5px; padding: 30px; border: 2px solid black;">
+           <div class='aligncenter gap'>
+             <h2 style=" font-weight: bold;  color: darkviolet;">Online Registration for Faculty</h2>
+           </div>
+           <div class='row aligncenter gap'>
+            <a class="button is-primary" href="/first/facultysignup">
+                <strong>Register</strong>
+              </a>
+          </div>
+          </div>
+        </div>
+       
+        
+        </div>
+        </div>
+        </div>
+      </form> 
+
+    </div>
+</div>
+   
+</body>
+</html>

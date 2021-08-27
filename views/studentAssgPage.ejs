@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Admin Login | Learning Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+   
+    
+      .root{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* color: white; */
+  
+         
+      } 
+      
+      .subdiv{
+          width: 100%;
+          margin-top: 30px;
+          padding: 20px;
+      } 
+      .aligncenter{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .gap{
+        padding: 15px;
+      }
+      /* footer section styling */
+footer{
+    background: #111;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+footer span a{
+    color: #00D1B2;
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
+th,td{
+  padding: 10px;
+  margin: 20px;
+}
+    </style>
+</head>
+<body style="background-color: #ecf0f1;">
+    <div style="display: flex; justify-content: center; align-items: center; ">
+        <div style="width: 70%; height: 100vh; background-color: white;">
+
+    <!-- Navigation Bar  -->
+    <nav class="navbar" style="background:#ffbe76; " role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" >
+            <img src="/images/lms.png" width="100px" height="150vh">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/first/first">
+              Home
+            </a>
+      
+            <a class="navbar-item">
+              Assignment
+            </a>
+
+            <a class="navbar-item">
+              Notes
+            </a>
+            
+            <a class="navbar-item" href="/first/stdAssg">
+              Submitted Assignment
+            </a>
+
+            <a class="navbar-item">
+              About
+            </a>
+
+            <a class="navbar-item" href="/first/getInTouch">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary" href="/first/first">
+                  <strong>Log Out</strong>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+      </nav>
+      <div>
+        
+        <br><br><b> All Assignment Given by Your Faculty till Now </b><hr>
+        <table>
+          <tr>
+            <th>
+              Assignment Number 
+            </th>
+            <th>
+              Semester 
+            </th>
+            <th>
+              Subject
+            </th>
+            <th>
+              Upload Date
+            </th>
+            <th>
+              Due Date
+            </th>
+            <th>
+              Faculty Name
+            </th>
+            <th>
+              Department
+            </th>
+            <th>
+              Assignment Download
+            </th>
+          </tr>
+          <% data.map((item,index)=>{%>
+            <tr>
+              <td>
+                <%= item.assignmentnumber%>
+              </td>
+              <td>
+                <%= item.semester %>
+              </td>
+              <td>
+               <%= item.subject %>
+              </td>
+              <td>
+               <%= item.uploaddate  %>
+              </td>
+              <td>
+                <%= item.duedate %>
+              </td>
+              <td>
+                <%= item.faculty %>
+              </td>
+              <td>
+                <%= dept %>
+              </td>
+              <td>
+                
+                <a href="/images/<%=item.file%>" download="Assignment">
+                  <button type="button">Download</button>
+                  </a>
+              </td>
+            </tr>
+            <% }) %>
+        </table>
+        <br><br><b style="text-align:center;" >Upload Assignment Solution</b><hr>
+        <form action="/first/stdUpldAssgn" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="sem" value="<%= data[0].semester %>">
+          <input type="hidden" name="dept" value="<%= dept %>">
+          <input type="hidden" name="rollnum" value="<%=rollnum%>">
+            <table border="0" style="width:1060px;">
+              <tr>
+                <td>Institute and Department :<%= data[0].institute %> | <%= data[0].department %>
+             
+            </td>
+            <td>Course : <%= data[0].course %>
+              
+            </td>
+            <td>Semester : <%= data[0].semester %>
+              
+            </td>
+          	</tr>
+            <tr>
+            <td>Subject Name : 
+            <select name="sname" required>
+              <option selected>-Select Subject-</option>
+                <option>CSE-101 Engineering Workshop</option>
+                <option>CSE-222 COA</option>
+                <option>CSE-222 SE-LAB</option>
+                <option>IT-101 Engineering Workshop</option>
+                <option>IT-222 COA</option>
+                <option>IT-222 SE-LAB</option> 
+              </select> 
+            </td>
+            <td>Faculty for Submission : 
+            <select name="fname" required>
+              <option >Select Faculty</option>
+              
+              <option value="Prof. Hema Dubey">Prof. Hema Dubey</option>		
+            	<option value="Prof. MEENU CHAWLA">Prof. Meenu Chawla</option>		
+            	<option value="Prof. Shalini Stalin">Prof. Shalini Stalin</option>			
+              <option value="Prof. Yatendra Sahu">Prof. Yatendra Sahu</option>
+             </select>
+            </td>
+            <td>Assignment No. : 
+            <select name="assign_no" required>
+              <option value="">Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+           </td>
+          </tr>
+          <tr>
+            <td>PDF/DOCX File <input type="file" name="file"  required />
+             </td>
+            <td colspan="2"><input type="submit" value="Upload" name="submit_assign"/></td>
+            </tr>
+          </table>
+            </form><hr>
+              <br><br><br>
+        </div>
+        
+        <!-- footer section start -->
+        <footer>
+            <span>Created By <a href="#">BadriVishalS</a> | <span class="far fa-copyright"></span> 2021 All rights reserved.</span>
+        </footer>
+     
+      
+    </div>
+</div>
+
+</body>
+</html>
