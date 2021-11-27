@@ -15,12 +15,12 @@ https://classromax.herokuapp.com/first/first
 - Assignment submission
 - View submitted assignment
 
-#### For Admin
+#### For Teachers/ Admin
 - Admin login
 - Upload assignment in a particular class
-- View submitted assignment
+- View submissions
 - Edit a particular assignment
-- Delte a assignment
+- Delete a assignment
 - Assign marks to the students 
 
 
